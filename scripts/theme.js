@@ -1,19 +1,21 @@
 // Variables
 const themeBtn = document.querySelector("#themeBtn");
-let darkMode = !document.cookie.includes("darkTheme=false");
+let darkMode = false;
 
 // Function to toggle theme
 function toggleTheme() {
 	if (darkMode) {
 		// Dark Mode setting
 		document.body.setAttribute("data-bs-theme", "light");
-		document.querySelector(".navbar-brand").src = "../images/logo-dark.png";
 		// Theme swap to dark mode
 		document.querySelectorAll(".bg-dark").forEach((element) => {
 			element.classList.replace("bg-dark", "bg-light");
 		});
 		document.querySelectorAll(".text-bg-light").forEach((element) => {
 			element.classList.replace("text-bg-light", "text-bg-dark");
+		});
+		document.querySelectorAll(".text-light").forEach((element) => {
+			element.classList.replace("text-light", "text-dark");
 		});
 		// Change Button
 		document.body.querySelectorAll(".btn-light").forEach((element) => {
@@ -25,13 +27,15 @@ function toggleTheme() {
 	} else {
 		// Light mode setting
 		document.body.setAttribute("data-bs-theme", "dark");
-		document.querySelector(".navbar-brand").src = "../images/logo-light.png";
 		// Theme swap to light mode
 		document.querySelectorAll(".bg-light").forEach((element) => {
 			element.classList.replace("bg-light", "bg-dark");
 		});
 		document.querySelectorAll(".text-bg-dark").forEach((element) => {
 			element.classList.replace("text-bg-dark", "text-bg-light");
+		});
+		document.querySelectorAll(".text-dark").forEach((element) => {
+			element.classList.replace("text-dark", "text-light");
 		});
 		// Change Button
 		document.body.querySelectorAll(".btn-dark").forEach((element) => {
