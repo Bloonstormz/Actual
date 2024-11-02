@@ -1,0 +1,45 @@
+<DOCTYPE! html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>recipenow</title>
+    <link rel="stylesheet" type="type/css" href="styles.css"> 
+  </head>
+  <body>
+
+    <div class="topdiv">
+        <nav class="navbar">
+            <a href="index.html" class="nbutton">Home</a>
+        </nav>
+    </div>
+
+    <h2>Hello, What do you feel like today?</h2>
+
+    <br><br>
+    <div class="searchBar">
+      <label for="ingredients">Enter your ingredients here:</label>
+      <input type="text" id="ingredient" name="ingredient" class="form-control" placeholder="Enter ingredient" />
+      <button id="addButton" class="btn btn-primary">Add</button>
+
+      <br><hr>
+
+      
+
+      <input type="button" name="enter" value="enter" onclick="recipeSearch()">
+    </div>
+  </body>
+
+  <script type="text/javascript">
+        function recipeSearch()
+        {
+            var a=document.getElementById("ingredients").value;
+            if(!a)
+        {
+            alert('Enter your ingredients!');
+        }
+        }
+        
+  </script>
+  <script src="../scripts/search.js"></script>
+
+</html>
