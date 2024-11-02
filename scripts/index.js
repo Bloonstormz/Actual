@@ -31,13 +31,13 @@ function createTag(ingredient) {
 
 	// Create the tag element
 	const tagElement = document.createElement("span");
-	tagElement.className = "badge text-bg-secondary tag me-2 d-flex align-items-center"; // Add your existing styles
+	tagElement.className = "badge text-bg-secondary tag me-2 d-flex align-items-center rounded-pill"; // Add your existing styles
 	tagElement.textContent = ingredient; // Set the tag text
 
 	// Create the delete button
 	const deleteButton = document.createElement("button");
 	deleteButton.textContent = "×"; // Use '×' as the delete button
-	deleteButton.className = "btn-close btn-close-white btn-sm ms-1"; // Bootstrap close button
+	deleteButton.className = "btn-close btn-close-light btn-sm ms-1"; // Bootstrap close button
 	deleteButton.ariaLabel = "Close";
 
 	deleteButton.addEventListener("click", function () {

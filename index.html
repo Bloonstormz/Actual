@@ -28,6 +28,8 @@
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item"><a class="nav-link active text-bg-light" aria-current="page" href="../index.html">Home</a></li>
 						<li class="nav-item"><a class="nav-link" href="../pages/search.html">Search</a></li>
+						<li class="nav-item"><a class="nav-link" href="../pages/recipe.html">Recipe</a></li>
+						<li class="nav-item"><a class="nav-link" href="../pages/leaderboard.html">Leaderboard</a></li>
 					</ul>
 					<!-- Buttons -->
 					<div class="d-flex justify-content-center gap-2 text-center">
@@ -58,15 +60,17 @@
 		</nav>
 
 		<!-- Main content -->
-		<main class="container my-5">
-			<div class="h1 text-center mb-5 text-light">Add ingredients / Search Recipes</div>
-			<div class="row pt-3 align-items-center rounded-3 border border-info shadow-lg">
-				<form id="searchForm" class="d-flex" role="search" method="POST" onsubmit="event.preventDefault();">
-					<input class="form-control me-2 outline" type="search" placeholder="Enter Ingredients" aria-label="Search" />
-					<button id="addButton" class="btn btn-outline-primary me-2" type="button">Add</button>
-					<button id="searchButton" class="btn btn-success" type="button">Search</button>
-				</form>
-				<div id="tagsContainer" class="mt-2 d-flex flex-wrap my-2"><!-- Tags will appear here --></div>
+		<main class="container-fluid h-100 d-flex flex-column" style="min-height: 90dvh">
+			<div class="position-absolute top-50 start-50 translate-middle container">
+				<div class="h1 text-center mb-5 text-light">Add ingredients / Search Recipes</div>
+				<div class="row pt-3 align-items-center rounded-3 border border-info shadow-lg mx-auto">
+					<form id="searchForm" class="d-flex" role="search" onsubmit="event.preventDefault();">
+						<input class="form-control me-2 outline btn-lg" type="search" placeholder="Enter Ingredients" aria-label="Search" style="height: 50px" />
+						<button id="addButton" class="btn btn-outline-primary me-2" type="button">Add</button>
+						<button id="searchButton" class="btn btn-success" type="button">Search</button>
+					</form>
+					<div id="tagsContainer" class="mt-2 d-flex flex-wrap my-2"><!-- Tags will appear here --></div>
+				</div>
 			</div>
 		</main>
 
