@@ -10,15 +10,15 @@ async function searchRecipes() {
 		}
 
 		const data = await response.json();
-        displayInformation(data)
+		displayInformation(data);
 	} catch (error) {
 		console.log("Error:", error);
 	}
 }
 
-function displayInformation(data){
-    console.lo
-    document.querySelector("#recipeDisplay").innerHTML += `
+function displayInformation(data) {
+	console.lo;
+	document.querySelector("#recipeDisplay").innerHTML += `
     <div>
         <div class="h1 text-dark text-center">${data.recipe.label}</div>
         <hr class="border border-dark border-2 opacity-50 rounded" />
@@ -82,39 +82,38 @@ function displayInformation(data){
 				</li>
 			</ul>
             </div>
-            <div><button class="btn btn-lg m-auto mt-3 btn-success see-more-btn float-end" href="${data.recipe.url}">Find recipe here</button></div>
+            <div><a target="_blank" class="btn btn-lg m-auto mt-3 btn-success see-more-btn float-end" href="${data.recipe.url}">Find recipe here</a></div>
              
         </div>
     </div>
-    `
-    if(data.recipe.healthLabels){
-        document.querySelector("#AllergentsHeading").innerHTML +=`
+    `;
+	if (data.recipe.healthLabels) {
+		document.querySelector("#AllergentsHeading").innerHTML += `
         <h2 class="text-dark">Allergy notice: </h2> 
-        `
-        data.recipe.healthLabels.forEach(element => createTag(element, "ifAllergents"));
-        
-    }
-    if(data.recipe.cautions){
-        document.querySelector("#CautionsHeading").innerHTML +=`
+        `;
+		data.recipe.healthLabels.forEach((element) => createTag(element, "ifAllergents"));
+	}
+	if (data.recipe.cautions) {
+		document.querySelector("#CautionsHeading").innerHTML += `
         <h2 class="text-dark">Caution: </h2>
-        `
-        data.recipe.cautions.forEach(element=> createTag(element, "ifCautions"));
-    }
-    
-    if(data.recipe.ingredientLines){
-        document.querySelector("#labelIngredients").innerHTML  += `<h2 class="text-dark">Ingredients: </h2>`
-        const ingredientList = data.recipe.ingredientLines;
-        console.log(ingredientList)
-        console.log(document.querySelector("#ingridientsList"))
-        ingredientList.forEach(element => {
-            document.querySelector("#ingridientsList").innerHTML  += `<li>${element}</li>`;
-            console.log(element)
-        });
-    }
+        `;
+		data.recipe.cautions.forEach((element) => createTag(element, "ifCautions"));
+	}
+
+	if (data.recipe.ingredientLines) {
+		document.querySelector("#labelIngredients").innerHTML += `<h2 class="text-dark">Ingredients: </h2>`;
+		const ingredientList = data.recipe.ingredientLines;
+		console.log(ingredientList);
+		console.log(document.querySelector("#ingridientsList"));
+		ingredientList.forEach((element) => {
+			document.querySelector("#ingridientsList").innerHTML += `<li>${element}</li>`;
+			console.log(element);
+		});
+	}
 }
 
 function commaSeperatedList(list) {
-    return list.join(", ");
+	return list.join(", ");
 }
 
 // Function to create tags
@@ -124,7 +123,7 @@ function createTag(ingredient, tagContainerID) {
 	// Create the tag element
 	const tagElement = document.createElement("span");
 	tagElement.className = "badge text-bg-warning tag me-2 d-flex align-items-center rounded-pill  text-center"; // Add your existing styles
-    tagElement.style = "display: inline-block; padding: 5px 10px; border: 1px solid #ccc";
+	tagElement.style = "display: inline-block; padding: 5px 10px; border: 1px solid #ccc";
 	tagElement.textContent = ingredient; // Set the tag text
 
 	tagsContainer.appendChild(tagElement); // Append the tag to the tags container
