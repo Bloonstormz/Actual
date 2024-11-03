@@ -39,6 +39,7 @@ async function getRecipes() {
 	}
 }
 
+// Add to recipes
 function addListing(data) {
 	data.hits.forEach((element) => {
 		console.log(element);

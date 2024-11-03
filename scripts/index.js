@@ -1,18 +1,7 @@
-function createRecipeBox(recipe) {
-	const htmlRecipeBox = `
-    <a href="${recipe.recipe.url}">
-        <div style="width: 80%, margin-left:10%, margin-right:10%">
-            <h2> ${recipe.recipe.label}</h2>
-            <div>
-            <img src="${recipe.recipe.image}" alt="Image of ${recipe.recipe.label}" style="float:right"> </img>
-            <p> Servings: ${recipe.recipe.yield}</p>
-            <p> Calories: ${recipe.recipe.calories}</p>
-            </div>
-        </div>
-    </a>
-    `;
-	return htmlRecipeBox;
-}
+// Enabled tooltips
+// Initialize popovers
+const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+const popoverList = [...popoverTriggerList].map((popoverTriggerEl) => new bootstrap.Popover(popoverTriggerEl));
 
 // Function to add to tags
 function addTag() {
@@ -48,6 +37,14 @@ function createTag(ingredient) {
 	tagsContainer.appendChild(tagElement); // Append the tag to the tags container
 }
 
+// Add exisiting tags
+if (localStorage.getItem("searchValue")) {
+	localStorage
+		.getItem("searchValue")
+		.split(", ")
+		.forEach((item) => createTag(item));
+}
+
 // Function to get all tags
 function getRequest() {
 	const tagsContainer = document.getElementById("tagsContainer");
@@ -69,6 +66,11 @@ document.querySelector('input[type="search"]').addEventListener("keydown", (even
 // Onclick Function to search for the recipes
 document.getElementById("searchButton").onclick = () => {
 	let values = getRequest();
-	localStorage.setItem("searchValue", values);
-	window.location.href = "pages/search.html";
+	if (values.length == 0) {
+		popoverList[0].show();
+		setTimeout(() => popoverList[0].hide(), 2000);
+	} else {
+		localStorage.setItem("searchValue", values);
+		window.location.href = "pages/search.html";
+	}
 };
