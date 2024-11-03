@@ -1,6 +1,6 @@
 // Variables
 const themeBtn = document.querySelector("#themeBtn");
-let darkMode = false;
+let darkMode = true;
 
 // Function to toggle theme
 function toggleTheme() {
@@ -16,6 +16,9 @@ function toggleTheme() {
 		});
 		document.querySelectorAll(".text-light").forEach((element) => {
 			element.classList.replace("text-light", "text-dark");
+		});
+		document.querySelectorAll(".border-light").forEach((element) => {
+			element.classList.replace("border-light", "border-dark");
 		});
 		// Change Button
 		document.body.querySelectorAll(".btn-light").forEach((element) => {
@@ -37,11 +40,15 @@ function toggleTheme() {
 		document.querySelectorAll(".text-dark").forEach((element) => {
 			element.classList.replace("text-dark", "text-light");
 		});
+		document.querySelectorAll(".border-dark").forEach((element) => {
+			element.classList.replace("border-dark", "border-light");
+		});
+		
 		// Change Button
 		document.body.querySelectorAll(".btn-dark").forEach((element) => {
 			element.classList.replace("btn-dark", "btn-light");
 			if (element.childElementCount == 1 && element.firstElementChild.tagName === "svg") {
-				element.firstElementChild.setAttribute("fill", "black");
+				element.firstElementChild.setAttribute("fill", "white");
 			}
 		});
 	}

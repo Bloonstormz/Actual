@@ -37,13 +37,6 @@ function createTag(ingredient) {
 	tagsContainer.appendChild(tagElement); // Append the tag to the tags container
 }
 
-// Add exisiting tags
-if (localStorage.getItem("searchValue")) {
-	localStorage
-		.getItem("searchValue")
-		.split(", ")
-		.forEach((item) => createTag(item));
-}
 
 // Function to get all tags
 function getRequest() {
